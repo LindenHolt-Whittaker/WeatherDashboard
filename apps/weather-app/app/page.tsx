@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './page.module.css';
 
 
@@ -15,9 +16,35 @@ export default function Index() {
       <div className="container">
         <div id="welcome">
           <h1>
-            <span> Hello there, </span>
-            Welcome @bc-frontend-developer-task/weather-app 👋
+            <span> Hello there,👋</span>
+            Let&apos;s build a Weather App! 
           </h1>
+          <h2>Objective</h2>
+          <p>
+            Using a NX monorepo, TypeScript, React and Next.js your task is to build a Weather App.
+          </p>
+          <h2>Brief</h2>
+          <p>
+            Your assignment is to build a Weather App using the 
+            <a href="https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/">
+            Visual Crossing Weather API
+            </a>. We are looking for a solution that is functionally complete, not pixel-perfect but should look as close this <a href="https://www.figma.com/file/FNdVsOUJA53CWMW9mnraYk/Weather-App?type=design&node-id=0%3A1&t=FPsFSmGIgDaH48F6-1">design document</a> as possible.
+            <br />
+            <img
+              src="https://github.com/echo724/notion2md/assets/78376735/6b880ad1-3ff2-4cdd-8d06-ff708314772d"
+              alt="Weather App"
+               width="100%"
+  height="auto" /> 
+          </p>
+          <p>Fork this branch and then design, organise, test, and document your code using the scenario of it being deployed to production and be used by a user base of 5,000 daily active users.</p>
+          <h2>Tasks</h2>
+          <p>You have complete freedom over how and how long you want to spend to deliver the following requirements:</p>
+          <ol>
+            <li>On first load, the profile should show the weather for a specific place.</li>
+            <li>Users can for the weather of a location from user input.</li>
+            <li>Users can see relevant weather information based on their search.</li>
+            <li>Handle the case of no data being available for a search.</li>
+          </ol>
         </div>
 
         <div id="hero" className="rounded">
