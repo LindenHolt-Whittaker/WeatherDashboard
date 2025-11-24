@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Capriola', sans-serif;
   background: #1e2337;
   color: #ffffff;
   min-height: 100vh;
@@ -17,7 +19,7 @@ body {
 }
 
 .sidebar {
-  width: 420px;
+  width: 555px;
   background: #252a41;
   padding: 2rem;
   display: flex;
@@ -71,29 +73,44 @@ body {
 .current-weather {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .location-name {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .current-date {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
   opacity: 0.9;
 }
 
+.current-weather-icon-container {
+  margin: -4rem 0 -6rem;
+}
+
+.temperature-display-container {
+  display: flex;
+  align-items: baseline;
+}
+
 .temperature-display {
-  font-size: 6rem;
+  font-size: 7.5rem;
   font-weight: 700;
   line-height: 1;
 }
 
+.temperature-display-unit {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
 .conditions {
-  font-size: 2rem;
+  font-size: 3rem;
   opacity: 0.9;
 }
 

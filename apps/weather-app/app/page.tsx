@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { WeatherData, TemperatureUnit } from "./types/weather";
 import { getWeather } from "./lib/weatherApi";
 import WeatherSearch from "./components/WeatherSearch";
+import CurrentWeather from "./components/CurrentWeather";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -11,7 +12,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [unit, setUnit] = useState<TemperatureUnit>("C");
 
-  const DEFAULT_LOCATION = "London, UK";
+  const DEFAULT_LOCATION = "Brighton";
 
   const fetchWeather = async (location: string) => {
     try {
@@ -37,7 +38,7 @@ export default function Home() {
     <div className="app-container">
       <aside className="sidebar">
         <WeatherSearch onSearch={fetchWeather} isLoading={loading} />
-        
+
         {loading && (
           <div className="loading-state">
             <div className="spinner" />
@@ -52,14 +53,7 @@ export default function Home() {
         )}
 
         {weather && !loading && (
-          <div className="current-weather">
-            <h1 className="location-name">{weather.address}</h1>
-            <p className="current-date">{new Date().toDateString()}</p>
-            <div className="temperature-display">
-              {Math.round(weather.temp)}°{unit}
-            </div>
-            <div className="conditions">{weather.conditions}</div>
-          </div>
+          <CurrentWeather weather={weather} unit={unit} />
         )}
       </aside>
 
