@@ -7,11 +7,6 @@ export default function WeatherIcon({
   icon,
   size = "medium",
 }: WeatherIconProps) {
-  const sizeMap = {
-    medium: 144,
-    large: 360,
-  };
-
   // Map API icon codes to 4 Figma icons
   const getIconFileName = (apiIcon: string): string => {
     // Icon 1: Sun (clear conditions)
@@ -53,15 +48,12 @@ export default function WeatherIcon({
   };
 
   const iconFileName = getIconFileName(icon);
-  const dimension = sizeMap[size];
 
   return (
     <img
       src={`/icons/${iconFileName}`}
       alt={icon}
-      width={dimension}
-      height={dimension}
-      className="weather-icon"
+      className={`weather-icon ${size}`}
       style={{ display: "block" }}
     />
   );

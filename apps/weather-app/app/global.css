@@ -20,12 +20,13 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 555px;
+  width: 35%;
   background: #1E213A;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  text-align: center;
 }
 
 .search-form {
@@ -92,6 +93,16 @@ body {
 .current-weather-icon-container {
   /* negative margins used to eliminate empty space in Figma icons  */
   margin: -4rem 0 -5rem;
+}
+
+.weather-icon.medium {
+  width: 144px;
+  height: 144px;
+}
+
+.weather-icon.large {
+  width: 360px;
+  height: 360px;
 }
 
 .temperature-display-container {
@@ -269,6 +280,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   background: #1E213A;
   padding: 1.5rem;
   border-radius: 12px;
@@ -361,6 +373,28 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1480px) {
+  .weather-icon.medium {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 1340px) {
+  .forecast-day {
+    font-size: 1rem;  
+  }
+
+  .forecast-conditions {
+    font-size: 0.75rem;
+  }
+
+  .weather-icon.medium {
+    width: 96px;
+    height: 96px;
+  }
+}
+
 @media (max-width: 1200px) {
   .app-container {
     flex-direction: column;
