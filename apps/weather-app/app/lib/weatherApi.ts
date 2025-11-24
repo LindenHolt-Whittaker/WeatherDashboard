@@ -37,6 +37,6 @@ export async function getWeather(location: string): Promise<WeatherData> {
     icon: data.currentConditions.icon,
     sunrise: data.currentConditions.sunrise,
     sunset: data.currentConditions.sunset,
-    days: data.days.slice(0, 5), // Get next 5 days
+    days: data.days.slice(1, 6), // Get next 5 days
   };
 }

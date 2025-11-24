@@ -17,8 +17,7 @@ export default function ForecastCard({
   const minTemp = convertTemp(forecast.tempmin, unit);
 
   const getDayLabel = (dateString: string, index: number) => {
-    if (index === 0) return "Today";
-    if (index === 1) return "Tomorrow";
+    if (index === 0) return "Tomorrow";
 
     const date = new Date(dateString);
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

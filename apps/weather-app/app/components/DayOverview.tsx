@@ -50,7 +50,6 @@ export default function DayOverview({ weather, unit }: DayOverviewProps) {
             </div>
             <div className="progress-labels">
               <span>0</span>
-              <span>%</span>
               <span>100</span>
             </div>
           </div>
