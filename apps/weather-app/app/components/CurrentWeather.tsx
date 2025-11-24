@@ -1,5 +1,10 @@
 import { WeatherData, TemperatureUnit } from "../types/weather";
-import { convertTemp, formatDate, formatLocationName } from "../lib/utils";
+import {
+  convertTemp,
+  formatDate,
+  formatLocationName,
+  getFormattedConditions,
+} from "../lib/utils";
 import WeatherIcon from "./WeatherIcon";
 
 interface CurrentWeatherProps {
@@ -24,7 +29,11 @@ export default function CurrentWeather({ weather, unit }: CurrentWeatherProps) {
         <span className="temperature-display-unit">°{unit}</span>
       </div>
 
-      <div className="conditions">{weather.conditions}</div>
+      <div className="conditions">
+        {getFormattedConditions(weather.conditions).map((condition) => (
+          <div key={condition}>{condition}</div>
+        ))}
+      </div>
     </div>
   );
 }

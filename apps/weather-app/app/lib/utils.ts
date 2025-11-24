@@ -36,6 +36,8 @@ export function formatTime(time: string): string {
   return time.slice(0, 5); // Return HH:MM
 }
 
+// API returns user input as-is, so we apply smart title-casing
+// while preserving lowercase prepositions (de, la, upon, etc.)
 export function formatLocationName(location: string): string {
   // Words that should stay lowercase (common prepositions and articles in place names)
   const lowercaseWords = new Set([
@@ -104,3 +106,18 @@ export function formatLocationName(location: string): string {
     })
     .join(" ");
 }
+
+// Split string conditions by comma and show each condition on new line.
+// Most conditions show two conditions, so if only one, add breaking space for UI consistency.
+export const getFormattedConditions = (conditions: string) => {
+  const nonBreakingSpace = "\u00A0";
+
+  const formattedConditions = conditions
+    .split(",")
+
+  if (formattedConditions.length === 1) {
+    formattedConditions.push(nonBreakingSpace);
+  }
+
+  return formattedConditions;
+};
