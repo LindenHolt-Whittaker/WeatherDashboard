@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Capriola', sans-serif;
-  background: #1e2337;
+  background: #100E1D;
   color: #ffffff;
   min-height: 100vh;
 }
@@ -21,7 +21,7 @@ body {
 /* Sidebar Styles */
 .sidebar {
   width: 555px;
-  background: #252a41;
+  background: #1E213A;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -160,13 +160,15 @@ body {
 }
 
 .unit-toggle button {
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   border: none;
   border-radius: 50%;
-  background: #2d3552;
+  background: #585676;
   color: #ffffff;
-  font-size: 1rem;
+  font-family: 'Capriola', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.25rem 0 0;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -194,15 +196,15 @@ body {
 .overview-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .stat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #2d3552;
+  background: #1E213A;
   padding: 2rem;
   border-radius: 16px;
 }
@@ -260,14 +262,14 @@ body {
 .detail-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 3rem;
 }
 
 .detail-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #2d3552;
+  background: #1E213A;
   padding: 1.5rem;
   border-radius: 12px;
 }
@@ -309,7 +311,7 @@ body {
 }
 
 .forecast-card {
-  background: #2d3552;
+  background: #1E213A;
   padding: 1rem 0.25rem;
   border-radius: 12px;
   display: flex;
