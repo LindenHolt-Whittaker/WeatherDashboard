@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import { WeatherData, TemperatureUnit } from "./types/weather";
 import { getWeather } from "./lib/weatherApi";
+import WeatherSearch from "./components/WeatherSearch";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [unit, setUnit] = useState<TemperatureUnit>("C");
+
+  const DEFAULT_LOCATION = "London, UK";
 
   const fetchWeather = async (location: string) => {
     try {
@@ -27,12 +30,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchWeather("London, UK");
+    fetchWeather(DEFAULT_LOCATION);
   }, []);
 
   return (
     <div className="app-container">
       <aside className="sidebar">
+        <WeatherSearch onSearch={fetchWeather} isLoading={loading} />
+        
         {loading && (
           <div className="loading-state">
             <div className="spinner" />
