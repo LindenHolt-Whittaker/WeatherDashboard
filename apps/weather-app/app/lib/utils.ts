@@ -30,3 +30,8 @@ export function formatDate(date: Date): string {
 
   return `${dayName}, ${day} ${month}`;
 }
+
+export function formatTime(time: string): string {
+  // Visual Crossing returns time in HH:MM:SS format
+  return time.slice(0, 5); // Return HH:MM
+}

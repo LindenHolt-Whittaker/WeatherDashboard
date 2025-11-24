@@ -1,6 +1,6 @@
 interface WeatherIconProps {
   icon: string;
-  size?: "small" | "medium" | "large";
+  size?: "medium" | "large";
 }
 
 export default function WeatherIcon({
@@ -8,8 +8,7 @@ export default function WeatherIcon({
   size = "medium",
 }: WeatherIconProps) {
   const sizeMap = {
-    small: 48,
-    medium: 64,
+    medium: 144,
     large: 360,
   };
 

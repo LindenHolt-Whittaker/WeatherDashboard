@@ -5,6 +5,8 @@ import { WeatherData, TemperatureUnit } from "./types/weather";
 import { getWeather } from "./lib/weatherApi";
 import WeatherSearch from "./components/WeatherSearch";
 import CurrentWeather from "./components/CurrentWeather";
+import DayOverview from "./components/DayOverview";
+import ForecastCard from "./components/ForecastCard";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -75,91 +77,18 @@ export default function Home() {
 
         {weather && !loading && (
           <>
-            <div className="day-overview">
-              <h2>Day Overview</h2>
-
-              <div className="overview-grid">
-                <div className="stat-card">
-                  <h3>Humidity</h3>
-                  <div className="stat-value">
-                    {Math.round(weather.humidity)}%
-                  </div>
-                  <span className="progress-percentage">%</span>
-                  <div className="progress-bar">
-                    <div
-                      className="progress-fill humidity"
-                      style={{ width: `${weather.humidity}%` }}
-                    />
-                  </div>
-                  <div className="progress-labels">
-                    <span>0</span>
-                    <span>100</span>
-                  </div>
-                </div>
-
-                <div className="stat-card">
-                  <h3>Cloud Cover</h3>
-                  <div className="stat-value">
-                    {Math.round(weather.cloudcover)}%
-                  </div>
-                  <span className="progress-percentage">%</span>
-                  <div className="progress-bar">
-                    <div
-                      className="progress-fill cloudcover"
-                      style={{ width: `${weather.cloudcover}%` }}
-                    />
-                  </div>
-                  <div className="progress-labels">
-                    <span>0</span>
-                    <span>100</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="detail-grid">
-                <div className="detail-card">
-                  <div className="detail-label">Max temp.</div>
-                  <div className="detail-value">
-                    {weather.tempmax}°{unit}
-                  </div>
-                </div>
-
-                <div className="detail-card">
-                  <div className="detail-label">Max temp.</div>
-                  <div className="detail-value">
-                    {weather.tempmax}°{unit}
-                  </div>
-                </div>
-
-                <div className="detail-card">
-                  <div className="detail-label">Sunrise</div>
-                  <div className="detail-value">{weather.sunrise}</div>
-                </div>
-
-                <div className="detail-card">
-                  <div className="detail-label">Sunset</div>
-                  <div className="detail-value">{weather.sunset}</div>
-                </div>
-              </div>
-            </div>
+            <DayOverview weather={weather} unit={unit} />
 
             <div className="forecast-section">
               <h2>5 Day Forecast</h2>
               <div className="forecast-grid">
                 {weather.days.slice(0, 5).map((day, index) => (
-                  <div key={index} className="forecast-card">
-                    <div className="forecast-day">{day.datetime}</div>
-                    <div className="weather-icon">{day.icon}</div>
-                    <div className="forecast-conditions">{day.conditions}</div>
-                    <div className="forecast-temps">
-                      <span className="temp-high">
-                        {day.tempmax}°{unit}
-                      </span>
-                      <span className="temp-low">
-                        {day.tempmin}°{unit}
-                      </span>
-                    </div>
-                  </div>
+                  <ForecastCard
+                    key={day.datetime}
+                    forecast={day}
+                    unit={unit}
+                    index={index}
+                  />
                 ))}
               </div>
             </div>
