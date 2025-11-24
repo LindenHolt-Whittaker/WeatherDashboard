@@ -81,7 +81,6 @@ body {
 
 .location-name {
   font-size: 4rem;
-  font-weight: 700;
   line-height: 1;
 }
 
@@ -91,7 +90,8 @@ body {
 }
 
 .current-weather-icon-container {
-  margin: -4rem 0 -6rem;
+  /* negative margins used to eliminate empty space in Figma icons  */
+  margin: -4rem 0 -5rem;
 }
 
 .temperature-display-container {
@@ -101,7 +101,6 @@ body {
 
 .temperature-display {
   font-size: 7.5rem;
-  font-weight: 700;
   line-height: 1;
 }
 
@@ -112,7 +111,7 @@ body {
 
 .conditions {
   font-size: 3rem;
-  opacity: 0.9;
+  margin-top: 2rem;
 }
 
 /* Loading & Error States */
@@ -316,7 +315,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 
 .forecast-day {
@@ -328,6 +326,7 @@ body {
 .forecast-conditions {
   font-size: 0.875rem;
   text-align: center;
+  margin: 1rem 0;
 }
 
 .forecast-temps {

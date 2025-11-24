@@ -1,5 +1,5 @@
 import { WeatherData, TemperatureUnit } from "../types/weather";
-import { convertTemp, formatDate } from "../lib/utils";
+import { convertTemp, formatDate, formatLocationName } from "../lib/utils";
 import WeatherIcon from "./WeatherIcon";
 
 interface CurrentWeatherProps {
@@ -12,7 +12,7 @@ export default function CurrentWeather({ weather, unit }: CurrentWeatherProps) {
 
   return (
     <div className="current-weather">
-      <h1 className="location-name">{weather.address}</h1>
+      <h1 className="location-name">{formatLocationName(weather.address)}</h1>
       <p className="current-date">{formatDate(new Date())}</p>
 
       <div className="current-weather-icon-container">
