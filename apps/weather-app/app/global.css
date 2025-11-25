@@ -20,7 +20,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 35%;
+  width: 30%;
   background: #1E213A;
   padding: 2rem;
   display: flex;
@@ -95,6 +95,10 @@ body {
   margin: -4rem 0 -5rem;
 }
 
+.weather-icon {
+  display: block;
+}
+
 .weather-icon.medium {
   width: 144px;
   height: 144px;
@@ -156,14 +160,14 @@ body {
 
 /* Main Content Styles */
 .main-content {
-  flex: 1;
-  padding: 2rem 3rem;
+  position: relative;
+  margin: 2rem auto 0;
   overflow-y: auto;
 }
 
 .unit-toggle {
   position: absolute;
-  right: 2rem;
+  right: 0;
   display: flex;
   gap: 0.5rem;
   justify-content: flex-end;
@@ -194,10 +198,6 @@ body {
 }
 
 /* Day Overview */
-.day-overview {
-  margin-bottom: 3rem;
-}
-
 .day-overview h2 {
   font-size: 2.25rem;
   font-weight: 400;
@@ -307,7 +307,7 @@ body {
 
 /* Forecast Section */
 .forecast-section {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .forecast-section h2 {
@@ -381,6 +381,10 @@ body {
 }
 
 @media (max-width: 1340px) {
+  .conditions {
+    font-size: 2rem;
+  }
+
   .forecast-day {
     font-size: 1rem;  
   }

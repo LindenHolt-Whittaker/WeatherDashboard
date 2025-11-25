@@ -50,11 +50,13 @@ export default function WeatherIcon({
   const iconFileName = getIconFileName(icon);
 
   return (
+    // Disabling eslint for this use of img, on account of use of SVGs.
+    // Use of `Image` instead of `img` is primarily meant for PNG/JPG images.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={`/icons/${iconFileName}`}
       alt={icon}
       className={`weather-icon ${size}`}
-      style={{ display: "block" }}
     />
   );
 }
