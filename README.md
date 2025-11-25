@@ -12,6 +12,15 @@ A React/Next.js weather dashboard using the Visual Crossing Weather API.
 - Responsive design for mobile/tablet and smaller desktop sizes
 - Error handling for invalid locations and API failures
 
+## Environment Variables
+
+Create a `.env` file in the root directory:
+```
+NEXT_PUBLIC_WEATHER_API_KEY=your_api_key_here
+```
+
+Get your API key from [Visual Crossing](https://www.visualcrossing.com/).
+
 ## Setup
 
 1. Install dependencies:
