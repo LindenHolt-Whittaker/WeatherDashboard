@@ -1,11 +1,24 @@
 import { useState } from "react";
 import styles from "./WeatherSearch.module.css";
 
+/**
+ * Props for the WeatherSearch component
+ */
 interface WeatherSearchProps {
+  /** Callback function invoked when user submits a search with a valid location */
   onSearch: (location: string) => void;
+  /** Loading state to disable input and button during API calls */
   isLoading: boolean;
 }
 
+/**
+ * Weather search input component
+ *
+ * Provides a search form with input validation:
+ * - Trims whitespace from input
+ * - Disables submission when empty or loading
+ * - Displays arrow icon button for submission
+ */
 export default function WeatherSearch({
   onSearch,
   isLoading,

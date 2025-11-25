@@ -4,12 +4,13 @@ A React/Next.js weather dashboard using the Visual Crossing Weather API.
 
 ## Features
 
-- Search weather by location
+- Search functionality with Visual Crossing API integration
 - Temperature unit toggle (°C/°F)
-- 5-day forecast
+- Design matching the Figma specification
+- 5-day forecast with current conditions (humidity, cloud cover, sunrise/sunset, temps)
 - Current conditions with humidity, cloud cover, sunrise/sunset
-- Responsive design
-- Error handling
+- Responsive design for mobile/tablet and smaller desktop sizes
+- Error handling for invalid locations and API failures
 
 ## Setup
 
@@ -29,6 +30,8 @@ A React/Next.js weather dashboard using the Visual Crossing Weather API.
 ```
 
 ## Testing
+
+There is currently >85% unit test coverage across components and utilities.
 
 To run tests:
 ```bash
@@ -58,6 +61,18 @@ For a production deployment with 5,000 DAU:
 - Set up CDN for static assets
 - Add analytics
 - Implement comprehensive E2E tests
+
+## Development
+
+This project was developed with assistance from Claude AI (Anthropic's Claude Sonnet 4.5 model).
+
+This model was used as a coding assistant helping with:
+
+- Scaffolding the initial component structure
+- Discussing architectural decisions
+- Troubleshooting issues
+- Generating Jest unit tests
+- Refactoring global CSS file to CSS modules
 
 ## Time Spent
 

@@ -1,5 +1,11 @@
 import { TemperatureUnit } from "../types/weather";
 
+/**
+ * Converts temperature from Celsius to the specified unit
+ * @param celsius - Temperature value in Celsius
+ * @param unit - Target temperature unit ('C' or 'F')
+ * @returns Temperature in the specified unit
+ */
 export function convertTemp(celsius: number, unit: TemperatureUnit): number {
   if (unit === "F") {
     return (celsius * 9) / 5 + 32;
@@ -7,6 +13,11 @@ export function convertTemp(celsius: number, unit: TemperatureUnit): number {
   return celsius;
 }
 
+/**
+ * Formats a Date object into a readable string format
+ * @param date - Date object to format
+ * @returns Formatted date string in format "Day, DD Mon" (e.g., "Mon, 25 Nov")
+ */
 export function formatDate(date: Date): string {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
@@ -31,13 +42,22 @@ export function formatDate(date: Date): string {
   return `${dayName}, ${day} ${month}`;
 }
 
+/**
+ * Formats time string from Visual Crossing API format (HH:MM:SS) to display format (HH:MM)
+ * @param time - Time string in HH:MM:SS format
+ * @returns Time string in HH:MM format
+ */
 export function formatTime(time: string): string {
   // Visual Crossing returns time in HH:MM:SS format
   return time.slice(0, 5); // Return HH:MM
 }
 
-// API returns user input as-is, so we apply smart title-casing
-// while preserving lowercase prepositions (de, la, upon, etc.)
+/**
+ * Applies smart title-casing to location names while preserving lowercase for
+ * common prepositions and articles (e.g., "Stratford-upon-Avon", "Rio de Janeiro")
+ * @param location - Raw location name from user input
+ * @returns Properly formatted location name with intelligent capitalization
+ */
 export function formatLocationName(location: string): string {
   // Words that should stay lowercase (common prepositions and articles in place names)
   const lowercaseWords = new Set([
@@ -108,8 +128,12 @@ export function formatLocationName(location: string): string {
     .join(" ");
 }
 
-// Split string conditions by comma and show each condition on new line.
-// Most conditions show two conditions, so if only one, add breaking space for UI consistency.
+/**
+ * Splits weather conditions by comma for multi-line display
+ * Adds non-breaking space if only one condition to maintain consistent UI height
+ * @param conditions - Comma-separated weather conditions string from API
+ * @returns Array of trimmed condition strings, with non-breaking space added if needed
+ */
 export const getFormattedConditions = (conditions: string) => {
   const nonBreakingSpace = "\u00A0";
 

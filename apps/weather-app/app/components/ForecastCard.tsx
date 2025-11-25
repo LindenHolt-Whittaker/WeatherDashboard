@@ -17,7 +17,13 @@ export default function ForecastCard({
   const maxTemp = convertTemp(forecast.tempmax, unit);
   const minTemp = convertTemp(forecast.tempmin, unit);
 
+  /**
+   * Generates display label for forecast day
+   * - First forecast (index 0) shows "Tomorrow"
+   * - Subsequent days show formatted date (e.g., "Mon, 26 Nov")
+   */
   const getDayLabel = (dateString: string, index: number) => {
+    // First forecast day is always tomorrow since API returns next 5 days
     if (index === 0) return "Tomorrow";
 
     const date = new Date(dateString);

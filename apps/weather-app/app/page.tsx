@@ -9,6 +9,17 @@ import DayOverview from "./components/DayOverview";
 import ForecastCard from "./components/ForecastCard";
 import styles from "./page.module.css";
 
+/**
+ * Main weather dashboard component
+ *
+ * Manages application state including:
+ * - Current weather data from API
+ * - Loading and error states
+ * - Temperature unit preference (Celsius/Fahrenheit)
+ *
+ * Loads default location (Brighton) on mount and allows users to search
+ * for weather in other locations via the search component.
+ */
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -17,6 +28,12 @@ export default function Home() {
 
   const DEFAULT_LOCATION = "Brighton";
 
+  /**
+   * Fetches weather data for the specified location
+   * Handles loading state, error messages, and data updates
+   *
+   * @param location - Location name to fetch weather for
+   */
   const fetchWeather = async (location: string) => {
     try {
       setLoading(true);

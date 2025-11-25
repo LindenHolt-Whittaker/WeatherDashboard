@@ -22,6 +22,7 @@ export default function DayOverview({ weather, unit }: DayOverviewProps) {
           <div className={styles.progressBarContainer}>
             <span className={styles.progressPercentage}>%</span>
             <div className={styles.progressBar}>
+              {/* Color coding: green for higher values (>50%), yellow for lower values */}
               <div
                 className={`${styles.progressFill} ${
                   weather.humidity > 50 ? styles.green : styles.yellow
@@ -42,6 +43,7 @@ export default function DayOverview({ weather, unit }: DayOverviewProps) {
           <div className={styles.progressBarContainer}>
             <span className={styles.progressPercentage}>%</span>
             <div className={styles.progressBar}>
+              {/* Color coding: green for higher values (>50%), yellow for lower values */}
               <div
                 className={`${styles.progressFill} ${
                   weather.cloudcover > 50 ? styles.green : styles.yellow
