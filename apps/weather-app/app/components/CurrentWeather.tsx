@@ -6,6 +6,7 @@ import {
   getFormattedConditions,
 } from "../lib/utils";
 import WeatherIcon from "./WeatherIcon";
+import styles from "./CurrentWeather.module.css";
 
 interface CurrentWeatherProps {
   weather: WeatherData;
@@ -16,20 +17,20 @@ export default function CurrentWeather({ weather, unit }: CurrentWeatherProps) {
   const temp = convertTemp(weather.temp, unit);
 
   return (
-    <div className="current-weather">
-      <h1 className="location-name">{formatLocationName(weather.address)}</h1>
-      <p className="current-date">{formatDate(new Date())}</p>
+    <div className={styles.currentWeather}>
+      <h1 className={styles.locationName}>{formatLocationName(weather.address)}</h1>
+      <p className={styles.currentDate}>{formatDate(new Date())}</p>
 
-      <div className="current-weather-icon-container">
+      <div className={styles.currentWeatherIconContainer}>
         <WeatherIcon icon={weather.icon} size="large" />
       </div>
 
-      <div className="temperature-display-container">
-        <span className="temperature-display">{Math.round(temp)}</span>
-        <span className="temperature-display-unit">°{unit}</span>
+      <div className={styles.temperatureDisplayContainer}>
+        <span className={styles.temperatureDisplay}>{Math.round(temp)}</span>
+        <span className={styles.temperatureDisplayUnit}>°{unit}</span>
       </div>
 
-      <div className="conditions">
+      <div className={styles.conditions}>
         {getFormattedConditions(weather.conditions).map((condition) => (
           <div key={condition}>{condition}</div>
         ))}

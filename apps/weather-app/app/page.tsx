@@ -7,6 +7,7 @@ import WeatherSearch from "./components/WeatherSearch";
 import CurrentWeather from "./components/CurrentWeather";
 import DayOverview from "./components/DayOverview";
 import ForecastCard from "./components/ForecastCard";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -37,19 +38,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="app-container">
-      <aside className="sidebar">
+    <div className={styles.appContainer}>
+      <aside className={styles.sidebar}>
         <WeatherSearch onSearch={fetchWeather} isLoading={loading} />
 
         {loading && (
-          <div className="loading-state">
-            <div className="spinner" />
+          <div className={styles.loadingState}>
+            <div className={styles.spinner} />
             <p>Loading weather data...</p>
           </div>
         )}
 
         {error && (
-          <div className="error-state">
+          <div className={styles.errorState}>
             <p>{error}</p>
           </div>
         )}
@@ -59,16 +60,16 @@ export default function Home() {
         )}
       </aside>
 
-      <main className="main-content">
-        <div className="unit-toggle">
+      <main className={styles.mainContent}>
+        <div className={styles.unitToggle}>
           <button
-            className={unit === "C" ? "active" : ""}
+            className={unit === "C" ? styles.active : ""}
             onClick={() => setUnit("C")}
           >
             °C
           </button>
           <button
-            className={unit === "F" ? "active" : ""}
+            className={unit === "F" ? styles.active : ""}
             onClick={() => setUnit("F")}
           >
             °F
@@ -79,9 +80,9 @@ export default function Home() {
           <>
             <DayOverview weather={weather} unit={unit} />
 
-            <div className="forecast-section">
+            <div className={styles.forecastSection}>
               <h2>5 Day Forecast</h2>
-              <div className="forecast-grid">
+              <div className={styles.forecastGrid}>
                 {weather.days.slice(0, 5).map((day, index) => (
                   <ForecastCard
                     key={day.datetime}
@@ -96,7 +97,7 @@ export default function Home() {
         )}
 
         {error && !loading && (
-          <div className="main-error-state">
+          <div className={styles.mainErrorState}>
             <h2>Unable to load weather data</h2>
             <p>Please try searching for a different location.</p>
           </div>

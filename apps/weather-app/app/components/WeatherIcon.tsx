@@ -1,3 +1,5 @@
+import styles from "./WeatherIcon.module.css";
+
 interface WeatherIconProps {
   icon: string;
   size?: "medium" | "large";
@@ -56,7 +58,7 @@ export default function WeatherIcon({
     <img
       src={`/icons/${iconFileName}`}
       alt={icon}
-      className={`weather-icon ${size}`}
+      className={`${styles.weatherIcon} ${styles[size]}`}
     />
   );
 }

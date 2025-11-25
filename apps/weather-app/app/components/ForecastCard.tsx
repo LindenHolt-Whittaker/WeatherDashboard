@@ -1,6 +1,7 @@
 import { DayForecast, TemperatureUnit } from "../types/weather";
 import { convertTemp, getFormattedConditions } from "../lib/utils";
 import WeatherIcon from "./WeatherIcon";
+import styles from "./ForecastCard.module.css";
 
 interface ForecastCardProps {
   forecast: DayForecast;
@@ -42,23 +43,23 @@ export default function ForecastCard({
   };
 
   return (
-    <div className="forecast-card">
-      <div className="forecast-day">
+    <div className={styles.forecastCard}>
+      <div className={styles.forecastDay}>
         {getDayLabel(forecast.datetime, index)}
       </div>
-      <div className="forecast-weather-icon-container">
+      <div className={styles.forecastWeatherIconContainer}>
         <WeatherIcon icon={forecast.icon} />
       </div>
-      <div className="forecast-conditions">
+      <div className={styles.forecastConditions}>
         {getFormattedConditions(forecast.conditions).map((condition) => (
           <div key={condition}>{condition}</div>
         ))}
       </div>
-      <div className="forecast-temps">
-        <span className="temp-high">
+      <div className={styles.forecastTemps}>
+        <span className={styles.tempHigh}>
           {Math.round(maxTemp)}°{unit}
         </span>
-        <span className="temp-low">
+        <span className={styles.tempLow}>
           {Math.round(minTemp)}°{unit}
         </span>
       </div>

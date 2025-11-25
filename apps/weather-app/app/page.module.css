@@ -1,1 +1,136 @@
-.page {}
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 30%;
+  background: #1E213A;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+/* Loading & Error States */
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.errorState {
+  color: #ff6b6b;
+}
+
+/* Main Content Styles */
+.mainContent {
+  position: relative;
+  margin: 2rem auto 0;
+  overflow-y: auto;
+}
+
+.unitToggle {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.unitToggle button {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background: #585676;
+  color: #ffffff;
+  font-family: 'Capriola', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.25rem 0 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.unitToggle button.active {
+  background: #ffffff;
+  color: #1e2337;
+}
+
+.unitToggle button:hover:not(.active) {
+  background: #363c5a;
+}
+
+/* Forecast Section */
+.forecastSection {
+  margin-top: 2rem;
+}
+
+.forecastSection h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.forecastGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.mainErrorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.mainErrorState h2 {
+  font-size: 2rem;
+  color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .appContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+  
+  .forecastGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .forecastGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,6 @@
 import { WeatherData, TemperatureUnit } from "../types/weather";
 import { convertTemp, formatTime } from "../lib/utils";
+import styles from "./DayOverview.module.css";
 
 interface DayOverviewProps {
   weather: WeatherData;
@@ -11,44 +12,44 @@ export default function DayOverview({ weather, unit }: DayOverviewProps) {
   const minTemp = convertTemp(weather.tempmin, unit);
 
   return (
-    <div className="day-overview">
+    <div className={styles.dayOverview}>
       <h2>Day Overview</h2>
 
-      <div className="overview-grid">
-        <div className="stat-card">
+      <div className={styles.overviewGrid}>
+        <div className={styles.statCard}>
           <h3>Humidity</h3>
-          <div className="stat-value">{Math.round(weather.humidity)}%</div>
-          <div className="progress-bar-container">
-            <span className="progress-percentage">%</span>
-            <div className="progress-bar">
+          <div className={styles.statValue}>{Math.round(weather.humidity)}%</div>
+          <div className={styles.progressBarContainer}>
+            <span className={styles.progressPercentage}>%</span>
+            <div className={styles.progressBar}>
               <div
-                className={`progress-fill ${
-                  weather.humidity > 50 ? "green" : "yellow"
+                className={`${styles.progressFill} ${
+                  weather.humidity > 50 ? styles.green : styles.yellow
                 }`}
                 style={{ width: `${weather.humidity}%` }}
               />
             </div>
-            <div className="progress-labels">
+            <div className={styles.progressLabels}>
               <span>0</span>
               <span>100</span>
             </div>
           </div>
         </div>
 
-        <div className="stat-card">
+        <div className={styles.statCard}>
           <h3>Cloud Cover</h3>
-          <div className="stat-value">{Math.round(weather.cloudcover)}%</div>
-          <div className="progress-bar-container">
-            <span className="progress-percentage">%</span>
-            <div className="progress-bar">
+          <div className={styles.statValue}>{Math.round(weather.cloudcover)}%</div>
+          <div className={styles.progressBarContainer}>
+            <span className={styles.progressPercentage}>%</span>
+            <div className={styles.progressBar}>
               <div
-                className={`progress-fill ${
-                  weather.cloudcover > 50 ? "green" : "yellow"
+                className={`${styles.progressFill} ${
+                  weather.cloudcover > 50 ? styles.green : styles.yellow
                 }`}
                 style={{ width: `${weather.cloudcover}%` }}
               />
             </div>
-            <div className="progress-labels">
+            <div className={styles.progressLabels}>
               <span>0</span>
               <span>100</span>
             </div>
@@ -56,31 +57,31 @@ export default function DayOverview({ weather, unit }: DayOverviewProps) {
         </div>
       </div>
 
-      <div className="detail-grid">
-        <div className="detail-card">
-          <div className="detail-label">Max temp.</div>
-          <div className="detail-value-container">
-            <span className="detail-value">{Math.round(maxTemp)}</span>
-            <span className="detail-value-unit">°{unit}</span>
+      <div className={styles.detailGrid}>
+        <div className={styles.detailCard}>
+          <div className={styles.detailLabel}>Max temp.</div>
+          <div className={styles.detailValueContainer}>
+            <span className={styles.detailValue}>{Math.round(maxTemp)}</span>
+            <span className={styles.detailValueUnit}>°{unit}</span>
           </div>
         </div>
 
-        <div className="detail-card">
-          <div className="detail-label">Min temp.</div>
-          <div className="detail-value-container">
-            <span className="detail-value">{Math.round(minTemp)}</span>
-            <span className="detail-value-unit">°{unit}</span>
+        <div className={styles.detailCard}>
+          <div className={styles.detailLabel}>Min temp.</div>
+          <div className={styles.detailValueContainer}>
+            <span className={styles.detailValue}>{Math.round(minTemp)}</span>
+            <span className={styles.detailValueUnit}>°{unit}</span>
           </div>
         </div>
 
-        <div className="detail-card">
-          <div className="detail-label">Sunrise</div>
-          <div className="detail-value">{formatTime(weather.sunrise)}</div>
+        <div className={styles.detailCard}>
+          <div className={styles.detailLabel}>Sunrise</div>
+          <div className={styles.detailValue}>{formatTime(weather.sunrise)}</div>
         </div>
 
-        <div className="detail-card">
-          <div className="detail-label">Sunset</div>
-          <div className="detail-value">{formatTime(weather.sunset)}</div>
+        <div className={styles.detailCard}>
+          <div className={styles.detailLabel}>Sunset</div>
+          <div className={styles.detailValue}>{formatTime(weather.sunset)}</div>
         </div>
       </div>
     </div>

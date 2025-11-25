@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./WeatherSearch.module.css";
 
 interface WeatherSearchProps {
   onSearch: (location: string) => void;
@@ -19,19 +20,19 @@ export default function WeatherSearch({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form">
+    <form onSubmit={handleSubmit} className={styles.searchForm}>
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Search for a location..."
         disabled={isLoading}
-        className="search-input"
+        className={styles.searchInput}
       />
       <button
         type="submit"
         disabled={isLoading || !input.trim()}
-        className="search-button"
+        className={styles.searchButton}
       >
         <svg
           width="24"

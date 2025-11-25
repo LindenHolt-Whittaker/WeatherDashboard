@@ -1,0 +1,53 @@
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.locationName {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.currentDate {
+  font-size: 2.25rem;
+  opacity: 0.9;
+}
+
+.currentWeatherIconContainer {
+  /* negative margins used to eliminate empty space in Figma icons  */
+  margin: -4rem 0 -5rem;
+}
+
+.temperatureDisplayContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.temperatureDisplay {
+  font-size: 7.5rem;
+  line-height: 1;
+}
+
+.temperatureDisplayUnit {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.conditions {
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1560px) {
+  .locationName {
+    font-size: 3rem;
+  }
+
+  .conditions {
+    font-size: 2rem;
+  }
+}

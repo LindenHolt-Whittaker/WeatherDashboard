@@ -1,0 +1,28 @@
+.weatherIcon {
+  display: block;
+}
+
+.weatherIcon.medium {
+  width: 144px;
+  height: 144px;
+}
+
+.weatherIcon.large {
+  width: 360px;
+  height: 360px;
+}
+
+/* Responsive Design */
+@media (max-width: 1560px) {
+  .weatherIcon.medium {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 1340px) {
+  .weatherIcon.medium {
+    width: 96px;
+    height: 96px;
+  }
+}

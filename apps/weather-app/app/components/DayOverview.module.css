@@ -1,0 +1,123 @@
+.dayOverview h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 2.5rem 0 1rem;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1E213A;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.statCard h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.statValue {
+  font-size: 2.25rem;
+}
+
+.progressBarContainer {
+  width: 100%;
+}
+
+.progressPercentage {
+  display: flex;
+  justify-content: end;
+  opacity: 0.6;
+}
+
+.progressBar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressFill.green {
+  background: linear-gradient(to right, #4ade80, #22c55e);
+}
+
+.progressFill.yellow {
+  background: linear-gradient(to right, #fbbf24, #f59e0b);
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.detailCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #1E213A;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.detailLabel {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.detailValueContainer {
+  display: flex;
+  align-items: end;
+}
+
+.detailValue {
+  font-size: 2.25rem;
+}
+
+.detailValueUnit {
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .detailGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .detailGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
