@@ -43,6 +43,7 @@ export function formatLocationName(location: string): string {
   const lowercaseWords = new Set([
     "a",
     "an",
+    "am",
     "and",
     "as",
     "at",
@@ -75,17 +76,6 @@ export function formatLocationName(location: string): string {
   return location
     .split(" ")
     .map((word, index) => {
-      // Always capitalize the first word
-      if (index === 0) {
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-      }
-
-      // Check if this word should stay lowercase
-      const lowerWord = word.toLowerCase();
-      if (lowercaseWords.has(lowerWord)) {
-        return lowerWord;
-      }
-
       // Handle hyphenated words (e.g., "Stratford-upon-Avon")
       if (word.includes("-")) {
         return word
@@ -101,6 +91,17 @@ export function formatLocationName(location: string): string {
           .join("-");
       }
 
+      // Always capitalize the first word
+      if (index === 0) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
+
+      // Check if this word should stay lowercase
+      const lowerWord = word.toLowerCase();
+      if (lowercaseWords.has(lowerWord)) {
+        return lowerWord;
+      }
+
       // Standard title case
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     })
@@ -114,6 +115,7 @@ export const getFormattedConditions = (conditions: string) => {
 
   const formattedConditions = conditions
     .split(",")
+    .map((condition) => condition.trim());
 
   if (formattedConditions.length === 1) {
     formattedConditions.push(nonBreakingSpace);
