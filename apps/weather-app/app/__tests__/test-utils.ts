@@ -165,6 +165,7 @@ export const createMockDayForecast = (overrides?: Partial<DayForecast>): DayFore
 /**
  * Setup global fetch mock
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const setupFetchMock = (response: any, ok = true, status = 200) => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
