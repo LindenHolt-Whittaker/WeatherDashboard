@@ -373,7 +373,15 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1480px) {
+@media (max-width: 1560px) {
+  .location-name {
+    font-size: 3rem;
+  }
+
+  .conditions {
+    font-size: 2rem;
+  }
+
   .weather-icon.medium {
     width: 120px;
     height: 120px;
@@ -381,10 +389,6 @@ body {
 }
 
 @media (max-width: 1340px) {
-  .conditions {
-    font-size: 2rem;
-  }
-
   .forecast-day {
     font-size: 1rem;  
   }

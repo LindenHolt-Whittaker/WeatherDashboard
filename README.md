@@ -1,44 +1,64 @@
-# Frontend Exercise
+# Weather App
 
-![image 1](https://github.com/echo724/notion2md/assets/78376735/6b880ad1-3ff2-4cdd-8d06-ff708314772d)
+A React/Next.js weather dashboard using the Visual Crossing Weather API.
 
-### Objective
+## Features
 
-Using a NX monorepo, TypeScript, React and Next.js your task is to build a Weather App.
+- Search weather by location
+- Temperature unit toggle (°C/°F)
+- 5-day forecast
+- Current conditions with humidity, cloud cover, sunrise/sunset
+- Responsive design
+- Error handling
 
-### Brief
+## Setup
 
-Your assignment is to build a Weather App using the [Visual Crossing Weather API](https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/). We are looking for a solution that is functionally complete, not pixel-perfect but should look as close [this design document](https://www.figma.com/file/FNdVsOUJA53CWMW9mnraYk/Weather-App?type=design&node-id=0%3A1&t=FPsFSmGIgDaH48F6-1) as possible.
-
-Fork this branch and then design, organise, test, and document your code using the scenario of it being deployed to production and be used by a user base of 5,000 daily active users.
-
-### Tasks
-
-You have complete freedom over how and how long you want to spend to deliver the following requirements:
-
-- On first load, the profile should show the weather for a specific place.
-- Users can for the weather of a location from user input.
-- Users can see relevant weather information based on their search.
-- Handle the case of no data being available for a search.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx dev weather-app
+1. Install dependencies:
+```bash
+   npm install
 ```
 
-To create a production bundle:
-
-```sh
-npx nx build weather-app
+2. Add your API key to `.env`:
+```
+   NEXT_PUBLIC_WEATHER_API_KEY=your_key_here
 ```
 
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project weather-app
+3. Run development server:
+```bash
+   npx nx dev weather-app
 ```
+
+## Testing
+
+To run tests:
+```bash
+npx nx test weather-app
+```
+
+Run with coverage report:
+```bash
+npx nx test weather-app --coverage
+```
+
+Run in watch mode:
+```bash
+npx nx test weather-app --watch
+```
+
+### Note on Console Warnings
+
+You may see React `act(...)` warnings in the console output. These are informational messages about async state updates and do not indicate test failures. All tests verify correct behaviour through proper `waitFor()` assertions.
+
+## Production Considerations
+
+For a production deployment with 5,000 DAU:
+- Add request caching (SWR/React Query)
+- Implement rate limiting for API calls
+- Add error tracking (Sentry)
+- Set up CDN for static assets
+- Add analytics
+- Implement comprehensive E2E tests
+
+## Time Spent
+
+Approximately 5 hours total.
